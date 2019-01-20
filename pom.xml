@@ -3,7 +3,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.dzone.albanoj2.example</groupId>
-	<artifactId>junit-test-stages</artifactId>
+	<artifactId>junit-test-stages-junit4</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
 	<parent>
@@ -12,7 +12,7 @@
 		<version>2.1.1.RELEASE</version>
 		<relativePath></relativePath>
 	</parent>
-	
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -27,13 +27,8 @@
 			<artifactId>spring-boot-starter-webflux</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>org.junit.jupiter</groupId>
-			<artifactId>junit-jupiter-engine</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.junit.jupiter</groupId>
-			<artifactId>junit-jupiter-api</artifactId>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
@@ -56,7 +51,7 @@
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-surefire-plugin</artifactId>
 						<configuration>
-							<groups>integration</groups>
+							<groups>com.dzone.albanoj2.example.junitstages.rest.IntegrationTest</groups>
 							<excludedGroups>none</excludedGroups>
 						</configuration>
 					</plugin>
@@ -68,10 +63,17 @@
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<release>10</release>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>3.0.0-M3</version><!--$NO-MVN-MAN-VER$ -->
 				<configuration>
-					<excludedGroups>integration</excludedGroups>
+					<excludedGroups>com.dzone.albanoj2.example.junitstages.rest.IntegrationTest</excludedGroups>
 					<argLine>--illegal-access=permit</argLine>
 				</configuration>
 			</plugin>

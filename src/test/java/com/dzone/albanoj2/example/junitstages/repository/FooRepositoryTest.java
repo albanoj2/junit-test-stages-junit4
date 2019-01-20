@@ -1,13 +1,13 @@
 package com.dzone.albanoj2.example.junitstages.repository;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import java.util.Optional;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.Before;
+import org.junit.Test;
 
 import com.dzone.albanoj2.example.junitstages.domain.Foo;
 
@@ -15,7 +15,7 @@ public class FooRepositoryTest {
 
 	private FooRepository repository;
 	
-	@BeforeEach
+	@Before
 	public void setUp() {
 		repository = new FooRepository();
 	}

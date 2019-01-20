@@ -21,15 +21,15 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-web")
     compile("org.springframework.boot:spring-boot-starter")
     compile("org.springframework.boot:spring-boot-starter-webflux")
-    testCompile("org.junit.jupiter:junit-jupiter-engine:5.3.2")
-    testCompile("org.junit.jupiter:junit-jupiter-api:5.3.2")
+    testCompile("junit:junit:4.12")
     testCompile("org.mockito:mockito-inline")
     testCompile("org.springframework.boot:spring-boot-starter-test")
 }
 
 test {
-    useJUnitPlatform {
-        excludeTags 'integration'
+    
+    useJUnit {
+    	excludeCategories 'com.dzone.albanoj2.example.junitstages.rest.IntegrationTest'
     }
     
     testLogging {
@@ -38,9 +38,11 @@ test {
 }
 
 task integrationTest(type: Test) {
-    useJUnitPlatform {
-        includeTags 'integration'
+
+    useJUnit {
+    	includeCategories 'com.dzone.albanoj2.example.junitstages.rest.IntegrationTest'
     }
+    
     check.dependsOn it
     shouldRunAfter test
     

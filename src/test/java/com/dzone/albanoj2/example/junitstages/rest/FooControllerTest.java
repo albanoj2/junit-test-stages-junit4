@@ -4,12 +4,15 @@ import static org.mockito.ArgumentMatchers.eq;
 
 import java.util.Optional;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.reactive.WebFluxTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.reactive.server.WebTestClient;
 
 import com.dzone.albanoj2.example.junitstages.domain.Foo;
@@ -18,7 +21,8 @@ import com.dzone.albanoj2.example.junitstages.repository.FooRepository;
 import static org.mockito.Mockito.doReturn;
 
 @WebFluxTest
-@IntegrationTest
+@RunWith(SpringRunner.class)
+@Category(IntegrationTest.class)
 @ContextConfiguration(classes = ControllerTestConfig.class)
 public class FooControllerTest {
 
